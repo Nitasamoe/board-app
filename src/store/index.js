@@ -1,10 +1,12 @@
-import {
-  createStore
-} from 'vuex'
+import { createStore } from 'vuex'
+import board from '../default-board'
 
 export default createStore({
-  state: {},
-  mutations: {},
-  actions: {},
-  modules: {}
+    state: {
+        board,
+        Hallo: 'Hallo',
+    },
+    mutations: {},
+    actions: {},
+    modules: {},
 })
