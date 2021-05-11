@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Tobias Vue.js neuer branch App"/>
+    <HelloWorld msg="Welcome to Tobias Vue.js App mit neuem Feature"/>
   </div>
 </template>
 
