@@ -7,13 +7,15 @@ export default {
             name: 'todo',
             tasks: [
                 {
-                    description: '',
+                    description:
+                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
                     name: 'first task',
                     id: uuid(),
                     userAssigned: null,
                 },
                 {
-                    description: '',
+                    description:
+                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
                     name: 'second task',
                     id: uuid(),
                     userAssigned: null,
@@ -30,7 +32,7 @@ export default {
             name: 'in progress',
             tasks: [
                 {
-                    description: '',
+                    description: 'Lorem ipsum dolor sit amet',
                     name: 'fourth task',
                     id: uuid(),
                     userAssigned: null,
