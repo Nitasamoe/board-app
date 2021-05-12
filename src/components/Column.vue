@@ -1,14 +1,21 @@
 <template>
     {{ columnData.name }}
     <div v-for="taskData of columnData.tasks" :key="taskData.uuid">
-        {{ taskData.name }}
+        <Task
+            :assigne="taskData.userAssigned"
+            :title="taskData.name"
+            :description="taskData.description"
+        />
     </div>
 </template>
 
 <script lang="ts">
-//import { defineComponent } from 'vue'
+import Task from './Task.vue'
 
 export default {
     props: ['columnData'],
+    components: {
+        Task,
+    },
 }
 </script>
