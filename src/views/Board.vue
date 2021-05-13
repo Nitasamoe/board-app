@@ -1,13 +1,11 @@
 <template>
     <div id="board"></div>
     <div class="flex flex-row items-start">
-        <div
-            class="column"
+        <Column
             v-for="columnData of board.columns"
             :key="columnData"
-        >
-            <Column :columnData="columnData" />
-        </div>
+            :columnData="columnData"
+        />
     </div>
 </template>
 
