@@ -1,11 +1,13 @@
 <template>
-    {{ columnData.name }}
-    <div v-for="taskData of columnData.tasks" :key="taskData.uuid">
-        <Task
-            :assigne="taskData.userAssigned"
-            :title="taskData.name"
-            :description="taskData.description"
-        />
+    <div class="column p-2 m-2 border-solid border-2">
+        {{ columnData.name }}
+        <div v-for="taskData of columnData.tasks" :key="taskData.uuid">
+            <Task
+                :assigne="taskData.userAssigned"
+                :title="taskData.name"
+                :description="taskData.description"
+            />
+        </div>
     </div>
 </template>
 
@@ -19,3 +21,9 @@ export default {
     },
 }
 </script>
+
+<style scoped>
+.column {
+    width: 500px;
+}
+</style>
