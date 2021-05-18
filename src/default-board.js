@@ -10,7 +10,7 @@ export default {
                     description:
                         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
                     name: 'first task',
-                    id: uuid(),
+                    id: 1234567,
                     userAssigned: null,
                 },
                 {
