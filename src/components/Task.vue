@@ -1,5 +1,5 @@
 <template>
-    <div class="border-solid border-2 p-2 m-2">
+    <div @click="goToTask(id)" class="border-solid border-2 p-2 m-2">
         <span class="font-semibold">{{ title }}</span>
         <p>{{ description }}</p>
     </div>
@@ -16,8 +16,17 @@ export default {
             type: String,
             required: true,
         },
+        id: {
+            type: String,
+            required: true,
+        },
         assigne: {
             type: String,
+        },
+    },
+    methods: {
+        goToTask(id) {
+            this.$router.push({ name: 'task', params: { id: id } })
         },
     },
 }
