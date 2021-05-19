@@ -5,9 +5,10 @@
         </div>
         <div class="flex flex-row items-start">
             <Column
-                v-for="columnData of board.columns"
-                :key="columnData"
+                v-for="(columnData, $columnIndex) of board.columns"
+                :key="$columnIndex"
                 :columnData="columnData"
+                :columnIndex="$columnIndex"
             />
         </div>
     </div>

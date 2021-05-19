@@ -1,12 +1,17 @@
 <template>
     <div class="column p-2 m-2 border-solid border-2">
         {{ columnData.name }}
-        <div v-for="taskData of columnData.tasks" :key="taskData.uuid">
+        <div
+            v-for="(taskData, $taskIndex) of columnData.tasks"
+            :key="$taskIndex"
+        >
             <Task
                 :assigne="taskData.userAssigned"
                 :title="taskData.name"
                 :description="taskData.description"
                 :id="taskData.id"
+                :taskIndex="$taskIndex"
+                :columnIndex="columnIndex"
             />
         </div>
         <input
@@ -22,7 +27,7 @@
 import Task from './Task.vue'
 
 export default {
-    props: ['columnData'],
+    props: ['columnData', 'columnIndex'],
     components: {
         Task,
     },
