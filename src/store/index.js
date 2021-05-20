@@ -10,6 +10,7 @@ export default createStore({
     plugins: [saveStatePlugin],
     state: {
         board,
+        dragEl: 'hallo',
     },
     mutations: {
         CREATE_TASK(state, { tasks, name }) {
@@ -26,6 +27,14 @@ export default createStore({
         MOVE_TASK(state, { fromTasks, toTasks, taskIndex }) {
             const taskToMove = fromTasks.splice(taskIndex, 1)[0]
             toTasks.push(taskToMove)
+        },
+        MOVE_COLUMN(state, { fromColumnIndex, toColumnIndex }) {
+            const columnList = state.board.columns
+            const columnToMove = columnList.splice(fromColumnIndex, 1)[0]
+            columnList.splice(toColumnIndex, 0, columnToMove)
+        },
+        SET_DRAG_EL(state, { draggedElement }) {
+            state.dragEl = draggedElement
         },
     },
     getters: {

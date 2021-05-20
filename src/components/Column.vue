@@ -1,33 +1,40 @@
 <template>
-    <div class="column p-2 m-2 border-solid border-2">
-        {{ columnData.name }}
+    <div class="dropzone column width500 flex flex-row">
         <div
-            v-for="(taskData, $taskIndex) of columnData.tasks"
-            :key="$taskIndex"
-        >
-            <Task
-                :assigne="taskData.userAssigned"
-                :title="taskData.name"
-                :description="taskData.description"
-                :id="taskData.id"
-                :taskIndex="$taskIndex"
-                :columnIndex="columnIndex"
+            v-if="checkIfCurrentColumnIsActiveSign"
+            class="borderLeft border-solid border-black border-2"
+        ></div>
+        <div class="column w-full p-2 m-2 border-solid border-2">
+            {{ columnData.name }}
+            <div
+                v-for="(taskData, $taskIndex) of columnData.tasks"
+                :key="$taskIndex"
+            >
+                <Task
+                    :assigne="taskData.userAssigned"
+                    :title="taskData.name"
+                    :description="taskData.description"
+                    :id="taskData.id"
+                    :taskIndex="$taskIndex"
+                    :columnIndex="columnIndex"
+                />
+            </div>
+            <input
+                type="text"
+                class="block p-2 w-full bg-trasnparent"
+                placeholder="+ Enter new Task"
+                @keyup.enter="createTask($event, columnData.tasks)"
             />
         </div>
-        <input
-            type="text"
-            class="block p-2 w-full bg-trasnparent"
-            placeholder="+ Enter new Task"
-            @keyup.enter="createTask($event, columnData.tasks)"
-        />
     </div>
 </template>
 
 <script lang="ts">
+import { compile } from 'vue'
 import Task from './Task.vue'
 
 export default {
-    props: ['columnData', 'columnIndex'],
+    props: ['columnData', 'columnIndex', 'showActiveDropColumnSign'],
     components: {
         Task,
     },
@@ -40,11 +47,23 @@ export default {
             e.target.value = ''
         },
     },
+    computed: {
+        checkIfCurrentColumnIsActiveSign() {
+            console.log('--------------')
+            console.log(this.columnIndex)
+            console.log(this.showActiveDropColumnSign)
+            return this.showActiveDropColumnSign === this.columnIndex
+        },
+    },
 }
 </script>
 
 <style scoped>
-.column {
+.width500 {
     width: 500px;
+}
+
+.showBorder {
+    display: block;
 }
 </style>
